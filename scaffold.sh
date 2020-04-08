@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+if [[ $(command -v go) == "" ]];then
+ 
+  echo "You don't have go installed!"
+  
+  echo "Re-directing you to the Go installation page"
+
+  open https://golang.org/doc/install
+  exit
+  
+fi
+
+
 # variable initilisation
 dirList=()
 counter=0
@@ -17,9 +29,16 @@ read -p 'How many directories will this contain? ' dirCount
 while [ $dirCount -gt $counter ] 
 do 
   counter=$(($counter + 1))
+
   read -p "Name of sub package $counter " subPackageName
-  dirList+=($subPackageName)
- 
+  
+   if ! [[ "$subPackageName" =~ ^[A-Z] ]]; then
+        echo "Captilizing package name $subPackageName!"
+      # TODO: fix the uppercasing of package name
+      #  echo ${subPackageName^}
+       
+    fi
+     dirList+=($subPackageName)
 done
 
 # resetting counter
