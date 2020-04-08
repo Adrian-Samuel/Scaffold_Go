@@ -34,11 +34,9 @@ do
   
    if ! [[ "$subPackageName" =~ ^[A-Z] ]]; then
         echo "Captilizing package name $subPackageName!"
-      # TODO: fix the uppercasing of package name
-      #  echo ${subPackageName^}
-       
+        subPackageName=`echo $subPackageName | awk '{print toupper(substr($0,0, 1))substr($0,2);}'`
     fi
-     dirList+=($subPackageName)
+    dirList+=($subPackageName)
 done
 
 # resetting counter
