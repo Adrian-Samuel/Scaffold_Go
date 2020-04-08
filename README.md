@@ -7,7 +7,7 @@ A general purpose script to generate a Go Package with relevant sub packages usi
 ## Installation
 
 ```bash
-git clone github.com/adrian-samuel/Scaffold_Go
+git clone git@github.com:Adrian-Samuel/Scaffold_Go.git
 
 cd Scaffold_Go
 
